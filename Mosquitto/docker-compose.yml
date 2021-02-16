@@ -1,0 +1,14 @@
+########################################################
+# creates mosquitto broker with config-file
+########################################################
+version: '3.7'
+services:
+    mosquitto:
+        image: matze8426/mosquittoconf:latest
+        restart: unless-stopped
+        volumes:
+            - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+            - D:\Docker\Volumes\Mosquitto\data:/mosquitto/data
+            - D:\Docker\Volumes\Mosquitto\log:/mosquitto/log
+        ports:
+            - 1883:1883
